@@ -25,20 +25,21 @@ export class Impact implements OnInit, OnDestroy {
 
   // Bar chart data — beneficiaries year over year
   yearData = [
-    { year: '2020', value: 45,  max: 500 },
-    { year: '2021', value: 95,  max: 500 },
-    { year: '2022', value: 160, max: 500 },
-    { year: '2023', value: 290, max: 500 },
-    { year: '2024', value: 480, max: 500 },
+    // { year: '2020', value: 45,  max: 500 },
+    // { year: '2021', value: 95,  max: 500 },
+    // { year: '2022', value: 160, max: 500 },
+    // { year: '2023', value: 290, max: 500 },
+    // { year: '2024', value: 480, max: 500 },
+    { year: '2025', value: 200, max: 500 },
+    { year: '2026', value: 400, max: 500 },
   ];
 
   // Horizontal bar chart — reach by program area
   programData = [
-    { label: 'Physical Therapy', value: 160, max: 480 },
-    { label: 'Assistive Devices', value: 110, max: 480 },
+    { label: 'Physical Therapy', value: 200, max: 480 },
+    { label: 'Assistive Devices', value: 160, max: 480 },
     { label: 'Education', value: 145, max: 480 },
-    { label: 'Vocational', value: 90,  max: 480 },
-    { label: 'Outreach', value: 480, max: 480 },
+    { label : 'Schemes', value:100 , max:480}
   ];
 
   chartsVisible = false;
@@ -46,11 +47,11 @@ export class Impact implements OnInit, OnDestroy {
 
   // Testimonials — duplicated for infinite scroll
   testimonials = [
-    { category: 'Physical Therapy', quote: '"Reable Foundation gave me more than therapy — they gave me belief in myself. Today I work independently and live on my own terms."', name: 'Priya Sharma', location: 'Pune, Maharashtra', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80', bg: '#E07B3F' },
-    { category: 'Vocational Training', quote: '"The vocational training program gave me skills I never thought I could have. Now I run my own business and support my family."', name: 'Rahul Patil', location: 'Nashik, Maharashtra', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80', bg: '#C1440E' },
-    { category: 'Inclusive Education', quote: '"Reable Foundation opened doors I thought were permanently closed. Their inclusive education program changed my life completely."', name: 'Anjali Desai', location: 'Mumbai, Maharashtra', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80', bg: '#8B4513' },
-    { category: 'Assistive Devices', quote: '"With the wheelchair and assistive tech they provided, I regained my independence. I now commute to work every day on my own."', name: 'Suresh Nair', location: 'Nagpur, Maharashtra', image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80', bg: '#4A6B7C' },
-    { category: 'Social Awareness', quote: '"The awareness programs helped my entire community understand disability differently. We are more inclusive now than ever before."', name: 'Meena Jadhav', location: 'Aurangabad, Maharashtra', image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&q=80', bg: '#5A6E45' },
+    { category: 'Physical Therapy', quote: '"Reable Foundation gave me more than therapy — they gave me belief in myself. Today I work independently and live on my own terms."', name: 'Priya Jagtap', location: 'Pune, Maharashtra', image: 'assets/testimonial/testimonial_image_1.png', bg: '#E07B3F' },
+    { category: 'Vocational Training', quote: '"The vocational training program gave me skills I never thought I could have. Now I run my own business and support my family."', name: 'Rahul Patil', location: 'Mumbai, Maharashtra', image: 'assets/testimonial/testimonial_image_4.png', bg: '#C1440E' },
+    { category: 'Inclusive Education', quote: '"Reable Foundation opened doors I thought were permanently closed. Their inclusive education program changed my life completely."', name: 'Anjali Shinde', location: 'Nashik, Maharashtra', image: 'assets/testimonial/testimonial_image_2.png', bg: '#8B4513' },
+    { category: 'Assistive Devices', quote: '"With the wheelchair and assistive tech they provided, I regained my independence. I now commute to work every day on my own."', name: 'Suresh Nair', location: 'Nagpur, Maharashtra', image: 'assets/testimonial/testimonial_image_5.png', bg: '#4A6B7C' },
+    { category: 'Social Awareness', quote: '"The awareness programs helped my entire community understand disability differently. We are more inclusive now than ever before."', name: 'Meena Jadhav', location: 'Pune, Maharashtra', image: 'assets/testimonial/testimonial_image_3.png', bg: '#5A6E45' },
   ];
 
   // Duplicate for seamless loop

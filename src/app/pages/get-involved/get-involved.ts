@@ -7,6 +7,12 @@ import {
   faHeart, faUsers, faUserPlus, faHandshake, faCircleCheck, faArrowRight
 } from '@fortawesome/free-solid-svg-icons';
 
+declare const emailjs: any;
+
+const SERVICE_ID = 'service_lpeecv9';
+const NOTIFY_TPL = 'template_310qovp';
+const REPLY_TPL  = 'template_le7qzxa';
+
 @Component({
   selector: 'app-get-involved',
   imports: [CommonModule, FormsModule, FontAwesomeModule, ScrollRevealDirective],
@@ -36,7 +42,7 @@ export class GetInvolved {
     },
     {
       icon: faUserPlus,
-      iconBg: '#C8A882',
+      iconBg: '#C1440E',
       cardBg: '#F5EDE3',
       title: 'Become a Member',
       desc: 'Join as a formal member of the foundation. Participate in governance, committees, and shape the direction of our programs.',
@@ -52,24 +58,40 @@ export class GetInvolved {
     },
   ];
 
-  form = {
-    name: '',
-    email: '',
-    phone: '',
-    interest: 'Volunteer',
-    message: ''
-  };
-
+  form = { name: '', email: '', phone: '', interest: 'Volunteer', message: '' };
   interests = ['Volunteer', 'Donate', 'Become a Member', 'Corporate Partner', 'Other'];
 
   submitted = false;
+  sending   = false;
+  error     = '';
 
-  onSubmit() {
-    this.submitted = true;
-    // Reset after 4s
-    setTimeout(() => {
-      this.submitted = false;
+  closeModal() {
+    this.submitted = false;
+  }
+
+  async onSubmit() {
+    this.sending = true;
+    this.error   = '';
+
+    const params = {
+      name:    this.form.name,
+      email:   this.form.email,
+      phone:   this.form.phone,
+      subject: this.form.interest,  // maps to {{subject}} in template
+      message: this.form.message,
+      title:   this.form.interest,  // used in auto-reply template
+    };
+
+    try {
+      await emailjs.send(SERVICE_ID, NOTIFY_TPL, params);
+      await emailjs.send(SERVICE_ID, REPLY_TPL, params);
+
+      this.submitted = true;
       this.form = { name: '', email: '', phone: '', interest: 'Volunteer', message: '' };
-    }, 4000);
+    } catch (err: any) {
+      this.error = 'Something went wrong. Please try again or email us directly.';
+    } finally {
+      this.sending = false;
+    }
   }
 }

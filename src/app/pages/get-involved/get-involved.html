@@ -1,3 +1,13 @@
+<!-- ===== SUCCESS MODAL ===== -->
+<div class="modal-backdrop" *ngIf="submitted" (click)="closeModal()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <div class="modal-icon">✅</div>
+    <h3 class="modal-title">Message Sent!</h3>
+    <p class="modal-text">Thank you for your interest in joining our mission! We've received your message and will be in touch soon.<br>A confirmation email has been sent to your inbox.</p>
+    <button class="modal-btn" (click)="closeModal()">Okay, Got It!</button>
+  </div>
+</div>
+
 <!-- ===== HERO ===== -->
 <section class="gi-hero">
   <div class="gi-hero-bg"></div>
@@ -58,8 +68,8 @@
     </div>
 
     <div class="contact-form-wrap" appScrollReveal [revealDelay]="150">
-      <div *ngIf="submitted" class="success-msg">
-        ✅ Thanks! We'll get back to you soon.
+      <div *ngIf="error" class="error-msg">
+        ⚠️ {{ error }}
       </div>
 
       <form *ngIf="!submitted" (ngSubmit)="onSubmit()" #f="ngForm">
@@ -76,8 +86,9 @@
           [(ngModel)]="form.message" name="message"
           class="form-textarea" rows="5">
         </textarea>
-        <button type="submit" class="submit-btn">
-          Send My Message <fa-icon [icon]="faArrowRight"></fa-icon>
+        <button type="submit" class="submit-btn" [disabled]="sending">
+          {{ sending ? 'Sending...' : 'Send My Message' }}
+          <fa-icon [icon]="faArrowRight" *ngIf="!sending"></fa-icon>
         </button>
       </form>
     </div>

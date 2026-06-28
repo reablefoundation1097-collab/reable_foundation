@@ -1,3 +1,13 @@
+<!-- ===== SUCCESS MODAL ===== -->
+<div class="modal-backdrop" *ngIf="submitted" (click)="closeModal()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <div class="modal-icon">✅</div>
+    <h3 class="modal-title">Message Sent!</h3>
+    <p class="modal-text">Thank you for reaching out. We've received your message and will get back to you within 48 hours.<br>A confirmation email has been sent to your inbox.</p>
+    <button class="modal-btn" (click)="closeModal()">Okay, Got It!</button>
+  </div>
+</div>
+
 <!-- ===== HERO ===== -->
 <section class="contact-hero">
   <div class="contact-hero-inner">
@@ -38,11 +48,11 @@
     <div class="form-card" appScrollReveal revealDirection="left">
       <h2 class="form-title">Send a Message</h2>
 
-      <div *ngIf="submitted" class="form-success">
-        ✅ Thank you! We'll get back to you within 48 hours.
+      <div *ngIf="error" class="form-error">
+        ⚠️ {{ error }}
       </div>
 
-      <form (ngSubmit)="onSubmit()" *ngIf="!submitted">
+      <form (ngSubmit)="onSubmit()">
         <div class="form-row">
           <div class="form-group">
             <input type="text" placeholder="Full Name" [(ngModel)]="form.name" name="name" required />
@@ -57,18 +67,18 @@
         <div class="form-group">
           <select [(ngModel)]="form.subject" name="subject" required>
             <option value="" disabled selected>Select Subject</option>
-            <option value="support">Seeking Support</option>
-            <option value="volunteer">Volunteering</option>
-            <option value="donate">Donation</option>
-            <option value="partner">Corporate Partnership</option>
-            <option value="other">Other</option>
+            <option value="Seeking Support">Seeking Support</option>
+            <option value="Volunteering">Volunteering</option>
+            <option value="Donation">Donation</option>
+            <option value="Corporate Partnership">Corporate Partnership</option>
+            <option value="Other">Other</option>
           </select>
         </div>
         <div class="form-group">
           <textarea placeholder="Your Message" [(ngModel)]="form.message" name="message" rows="5" required></textarea>
         </div>
-        <button type="submit" class="form-submit">
-          Send Message &rarr;
+        <button type="submit" class="form-submit" [disabled]="sending">
+          {{ sending ? 'Sending...' : 'Send Message →' }}
         </button>
       </form>
     </div>
@@ -95,7 +105,7 @@
           </div>
           <div>
             <span class="reach-label">PHONE</span>
-            <strong class="reach-value">+91 98765 43210</strong>
+            <strong class="reach-value">+91 84848 01484</strong>
             <span class="reach-sub">Mon–Sat, 9am–6pm IST</span>
           </div>
         </div>
@@ -105,7 +115,7 @@
           </div>
           <div>
             <span class="reach-label">EMAIL</span>
-            <strong class="reach-value">info@reablefoundation.org</strong>
+            <strong class="reach-value">reablefoundation.1097@gmail.com</strong>
             <span class="reach-sub">We reply within 48 hours</span>
           </div>
         </div>

@@ -30,28 +30,34 @@ export class About {
 
   team = [
     {
-      name: 'Priya Sharma',
-      role: 'Founder & Director',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
+      name: 'Dr. Yash Pore',
+      role: 'Founder & President',
+      image: '/assets/dr_yash_pore.jpeg',
       bg: '#E07B3F'
     },
     {
-      name: 'Arjun Mehta',
-      role: 'Program Manager',
-      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80',
+      name: 'Dr. Aniket Ahirekar',
+      role: 'Founder & Secretary',
+      image: '/assets/dr_aniket_ahirekar.jpeg',
       bg: '#4A6B7C'
     },
     {
-      name: 'Nadia Osei',
-      role: 'Head of Rehabilitation',
-      image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&q=80',
+      name: 'Dr. Sakshi Kothari',
+      role: 'Treasurer',
+      image: '/assets/dr_sakshi.jpeg',
       bg: '#8B4A4A'
     },
     {
-      name: 'Robert Kelley',
-      role: 'Medical Advisor',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
+      name: 'Shailesh Desai',
+      role: 'Trustee',
+      image: '/assets/dr_shailesh_desai.jpeg',
       bg: '#6B6B7A'
     },
+    // {
+    //   name: 'Atharva Ahirekar',
+    //   role: 'Trustee',
+    //   image: '/assets/atharva_ahirekar.png',
+    //   bg: '#6B6B7A'
+    // },
   ];
 }

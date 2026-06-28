@@ -157,16 +157,14 @@
     </div>
 
     <div class="programs-scroll">
-      <div class="program-card" *ngFor="let p of programs"
-        [style.background-color]="p.hasImage ? 'transparent' : p.bg"
-        [class.has-image]="p.hasImage">
-        <img *ngIf="p.hasImage" [src]="p.image" class="program-card-img" alt="{{ p.title }}" />
-        <div class="program-card-overlay" *ngIf="p.hasImage"></div>
+      <div class="program-card" *ngFor="let p of programs" [style.background-color]="p.bg">
+        <img [src]="p.image" class="program-card-img" [alt]="p.title" />
+        <div class="program-card-overlay"></div>
         <div class="program-card-content">
           <span class="program-category">{{ p.category }}</span>
           <h3 class="program-title">{{ p.title }}</h3>
-          <p class="program-desc" *ngIf="p.desc">{{ p.desc }}</p>
-          <a routerLink="/programs" class="program-link" *ngIf="p.desc">Learn More <fa-icon [icon]="faArrowRight"></fa-icon></a>
+          <p class="program-desc">{{ p.desc }}</p>
+          <a routerLink="/programs" class="program-link">Learn More <fa-icon [icon]="faArrowRight"></fa-icon></a>
         </div>
       </div>
     </div>
@@ -175,31 +173,16 @@
 
 <!-- ===== IMPACT / DIGNITY IN NUMBERS ===== -->
 <section class="impact-section">
-  <div class="impact-bg">
+  <div class="impact-bg impact-trigger">
     <span class="impact-watermark">IMPACT</span>
     <div class="section-container centered">
       <span class="section-badge-center impact-badge">OUR IMPACT</span>
       <h2 class="impact-heading">Dignity in Numbers.</h2>
       <div class="impact-stats">
-        <div class="impact-stat">
-          <span class="impact-num">500+</span>
-          <span class="impact-stat-title">Lives Touched</span>
-          <span class="impact-stat-desc">Individuals supported since inception</span>
-        </div>
-        <div class="impact-stat">
-          <span class="impact-num">12+</span>
-          <span class="impact-stat-title">Active Programs</span>
-          <span class="impact-stat-desc">Rehabilitation & empowerment initiatives</span>
-        </div>
-        <div class="impact-stat">
-          <span class="impact-num">36</span>
-          <span class="impact-stat-title">Districts Covered</span>
-          <span class="impact-stat-desc">Reaching all corners of Maharashtra</span>
-        </div>
-        <div class="impact-stat">
-          <span class="impact-num">200+</span>
-          <span class="impact-stat-title">Volunteers</span>
-          <span class="impact-stat-desc">Dedicated change-makers on the ground</span>
+        <div class="impact-stat" *ngFor="let s of stats">
+          <span class="impact-num">{{ s.current }}{{ s.suffix }}</span>
+          <span class="impact-stat-title">{{ s.label }}</span>
+          <span class="impact-stat-desc">{{ s.desc }}</span>
         </div>
       </div>
     </div>
