@@ -1,0 +1,59 @@
+<header class="navbar" [class.navbar-scrolled]="isScrolled">
+  <div class="navbar-container">
+
+    <!-- Logo -->
+    <!-- <div class="navbar-logo">
+      <a class="logo-circle" routerLink="/" aria-label="Reable Foundation Home">
+        <img src="/assets/logo_image.jpeg" alt="Reable Foundation Logo" class="logo-img" />
+      </a>
+      <span>Reable</span>
+      <span>Foundation</span>
+    </div> -->
+    <div class="navbar-logo">
+      <a class="logo-circle" routerLink="/" aria-label="Reable Foundation Home">
+        <fa-icon [icon]="faHeart" class="fa-heart fa-float heart-icon"></fa-icon>
+      </a>
+
+      <div class="logo-text">
+        <span class="logo-title">Reable</span>
+        <span class="logo-subtitle">Foundation</span>
+      </div>
+    </div>
+
+    <!-- Menu -->
+    <div class="navbar-menu">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        Home
+      </a>
+
+      <a routerLink="/about" routerLinkActive="active">
+        About
+      </a>
+
+      <a routerLink="/programs" routerLinkActive="active">
+        Programs
+      </a>
+
+      <a routerLink="/impact" routerLinkActive="active">
+        Impact
+      </a>
+
+      <a routerLink="/get-involved" routerLinkActive="active">
+        Get Involved
+      </a>
+
+      <a routerLink="/contact" routerLinkActive="active">
+        Contact
+      </a>
+    </div>
+
+
+    <!-- Button -->
+    <div class="navbar-action">
+      <a routerLink="/get-involved" class="donate-btn">
+        Donate Now
+      </a>
+    </div>
+
+  </div>
+</header>

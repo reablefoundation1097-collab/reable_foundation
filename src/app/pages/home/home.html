@@ -1,0 +1,275 @@
+<!-- ===== HERO SECTION ===== -->
+<section class="hero">
+  <div class="hero-bg-image"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <fa-icon [icon]="faHeart"></fa-icon>
+      NGO · Registered in Maharashtra
+    </div>
+
+    <h1 class="hero-heading">
+      Empowering<br>
+      <span class="hero-heading-accent">Special</span><br>
+      Abilities.
+    </h1>
+
+    <p class="hero-subtext">
+      Building confidence, independence, and overall well-being<br>
+      through structured rehabilitation programs tailored to every<br>
+      unique individual across Maharashtra.
+    </p>
+
+    <div class="hero-actions">
+      <a routerLink="/programs" class="btn-primary">Explore Programs <fa-icon [icon]="faArrowRight"></fa-icon></a>
+      <a routerLink="/about" class="btn-outline">Our Mission</a>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="hero-stats">
+    <div class="hero-stats-left">
+      <div class="stat-pill">
+        <span class="stat-number">500+</span>
+        <span class="stat-label">LIVES TOUCHED</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-number">12+</span>
+        <span class="stat-label">PROGRAMS</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-number">36</span>
+        <span class="stat-label">DISTRICTS</span>
+      </div>
+    </div>
+    <div class="hero-stats-right">
+      <div class="coverage-pill">
+        <fa-icon [icon]="faLocationDot" class="coverage-icon"></fa-icon>
+        <div>
+          <span class="coverage-label">COVERAGE AREA</span>
+          <span class="coverage-value">All Over Maharashtra</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-mouse">
+      <div class="scroll-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHO WE ARE ===== -->
+<section class="who-we-are">
+  <div class="section-container two-col">
+    <div class="who-left">
+      <span class="section-badge">WHO WE ARE</span>
+      <h2 class="section-heading">
+        A Foundation Built on<br>
+        <span class="accent-italic">Radical Dignity.</span>
+      </h2>
+      <p class="section-text">
+        Reable Foundation provides structured, supportive environments for
+        individuals with special abilities — offering medium- to long-term
+        rehabilitation programs tailored to their unique needs.
+      </p>
+      <p class="section-text">
+        Through comprehensive therapeutic interventions and continuous
+        support, we enhance confidence, independence, and overall well-being
+        for every individual we serve across Maharashtra.
+      </p>
+      <a routerLink="/about" class="text-link">Learn Our Full Story <fa-icon [icon]="faArrowRight"></fa-icon></a>
+    </div>
+
+    <div class="who-right">
+      <div class="who-card hover-card" *ngFor="let card of whoWeAreCards; let i = index" appScrollReveal [revealDelay]="i * 120" revealDirection="right">
+        <div class="who-card-icon">
+          <fa-icon [icon]="card.icon"></fa-icon>
+        </div>
+        <div>
+          <h4 class="who-card-title">{{ card.title }}</h4>
+          <p class="who-card-desc">{{ card.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUR DIRECTION ===== -->
+<section class="direction-section">
+  <div class="section-container centered">
+    <span class="section-badge-center">OUR DIRECTION</span>
+    <h2 class="section-heading-center">
+      Guided by Purpose,<br>
+      <span class="accent-italic">Driven by Impact.</span>
+    </h2>
+    <div class="direction-cards">
+      <div class="direction-card hover-card" *ngFor="let card of directionCards; let i = index" appScrollReveal [revealDelay]="i * 120">
+        <div class="direction-icon" [class.direction-icon-orange]="card.color === 'orange'" [class.direction-icon-gray]="card.color === 'gray'">
+          <fa-icon [icon]="card.icon"></fa-icon>
+        </div>
+        <h3 class="direction-card-title">{{ card.title }}</h3>
+        <p class="direction-card-desc">{{ card.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SIX PILLARS ===== -->
+<section class="pillars-section">
+  <div class="section-container centered">
+    <span class="section-badge-center pillars-badge">OUR OBJECTIVES</span>
+    <h2 class="section-heading-center">
+      Six Pillars of<br>
+      <span class="accent-italic">Our Mission.</span>
+    </h2>
+    <div class="pillars-grid">
+      <div class="pillar-card hover-card" *ngFor="let p of pillars; let i = index" appScrollReveal [revealDelay]="i * 80">
+        <div class="pillar-card-header">
+          <div class="pillar-icon-wrap">
+            <fa-icon [icon]="p.icon"></fa-icon>
+          </div>
+          <span class="pillar-number">{{ p.num }}</span>
+        </div>
+        <span class="pillar-category" [ngClass]="'cat-' + p.categoryColor">{{ p.category }}</span>
+        <h3 class="pillar-title">{{ p.title }}</h3>
+        <p class="pillar-desc">{{ p.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROGRAMS ===== -->
+<section class="programs-section">
+  <div class="section-container">
+    <div class="programs-header">
+      <div>
+        <span class="section-badge">WHAT WE DO</span>
+        <h2 class="section-heading">
+          Programs That<br>
+          <span class="accent-italic">Change Lives.</span>
+        </h2>
+      </div>
+      <a routerLink="/programs" class="btn-outline-sm">All Programs <fa-icon [icon]="faArrowRight"></fa-icon></a>
+    </div>
+
+    <div class="programs-scroll">
+      <div class="program-card" *ngFor="let p of programs"
+        [style.background-color]="p.hasImage ? 'transparent' : p.bg"
+        [class.has-image]="p.hasImage">
+        <img *ngIf="p.hasImage" [src]="p.image" class="program-card-img" alt="{{ p.title }}" />
+        <div class="program-card-overlay" *ngIf="p.hasImage"></div>
+        <div class="program-card-content">
+          <span class="program-category">{{ p.category }}</span>
+          <h3 class="program-title">{{ p.title }}</h3>
+          <p class="program-desc" *ngIf="p.desc">{{ p.desc }}</p>
+          <a routerLink="/programs" class="program-link" *ngIf="p.desc">Learn More <fa-icon [icon]="faArrowRight"></fa-icon></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IMPACT / DIGNITY IN NUMBERS ===== -->
+<section class="impact-section">
+  <div class="impact-bg">
+    <span class="impact-watermark">IMPACT</span>
+    <div class="section-container centered">
+      <span class="section-badge-center impact-badge">OUR IMPACT</span>
+      <h2 class="impact-heading">Dignity in Numbers.</h2>
+      <div class="impact-stats">
+        <div class="impact-stat">
+          <span class="impact-num">500+</span>
+          <span class="impact-stat-title">Lives Touched</span>
+          <span class="impact-stat-desc">Individuals supported since inception</span>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-num">12+</span>
+          <span class="impact-stat-title">Active Programs</span>
+          <span class="impact-stat-desc">Rehabilitation & empowerment initiatives</span>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-num">36</span>
+          <span class="impact-stat-title">Districts Covered</span>
+          <span class="impact-stat-desc">Reaching all corners of Maharashtra</span>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-num">200+</span>
+          <span class="impact-stat-title">Volunteers</span>
+          <span class="impact-stat-desc">Dedicated change-makers on the ground</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials-section">
+  <div class="section-container centered">
+    <span class="section-badge-center">VOICES OF CHANGE</span>
+    <h2 class="section-heading-center">
+      Stories That<br>
+      <span class="accent-italic">Inspire Us All.</span>
+    </h2>
+  </div>
+
+  <div class="testimonial-slider">
+    <div class="testimonial-slide" *ngFor="let t of testimonials; let i = index" [class.active]="i === currentSlide">
+      <div class="testimonial-image-wrap" [style.background-color]="t.bg">
+        <img [src]="t.image" [alt]="t.name" class="testimonial-img" />
+        <span class="testimonial-cat-badge">{{ t.category }}</span>
+      </div>
+      <div class="testimonial-content">
+        <div class="quote-icon">"</div>
+        <p class="testimonial-quote">{{ t.quote }}</p>
+        <div class="testimonial-author">
+          <img [src]="t.avatar" [alt]="t.name" class="testimonial-avatar" />
+          <div>
+            <span class="testimonial-name">{{ t.name }}</span>
+            <span class="testimonial-location">{{ t.location }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slider-controls">
+    <button class="slider-btn" (click)="prevSlide()">
+      <fa-icon [icon]="faChevronLeft"></fa-icon>
+    </button>
+    <div class="slider-dots">
+      <span class="dot" *ngFor="let t of testimonials; let i = index"
+        [class.active]="i === currentSlide"
+        (click)="goToSlide(i)"></span>
+    </div>
+    <button class="slider-btn" (click)="nextSlide()">
+      <fa-icon [icon]="faChevronRight"></fa-icon>
+    </button>
+  </div>
+</section>
+
+<!-- ===== GET INVOLVED ===== -->
+<section class="get-involved-section">
+  <div class="section-container centered">
+    <span class="section-badge-center get-involved-badge">JOIN OUR MISSION</span>
+    <h2 class="section-heading-center">
+      Three Ways to<br>
+      <span class="accent-italic">Make a Difference.</span>
+    </h2>
+    <div class="get-involved-cards">
+      <div class="get-involved-card hover-card" *ngFor="let card of getInvolvedCards; let i = index" appScrollReveal [revealDelay]="i * 120" [style.background-color]="card.cardBg">
+        <div class="get-involved-icon" [style.background-color]="card.iconBg">
+          <fa-icon [icon]="card.icon"></fa-icon>
+        </div>
+        <h3 class="get-involved-title">{{ card.title }}</h3>
+        <p class="get-involved-desc">{{ card.desc }}</p>
+        <a routerLink="/get-involved" class="get-started-link" [class.highlight]="card.highlight">
+          Get Started <fa-icon [icon]="faArrowRight"></fa-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,126 @@
+<!-- ===== HERO ===== -->
+<section class="contact-hero">
+  <div class="contact-hero-inner">
+    <span class="contact-badge">CONTACT US</span>
+    <h1 class="contact-heading">
+      Let's Talk.<br>
+      We're <span class="accent-italic">Here.</span>
+    </h1>
+    <p class="contact-subtext">
+      Whether you're a family seeking support, a volunteer ready to<br>
+      serve, or a donor looking to contribute — reach out. Every<br>
+      message matters.
+    </p>
+  </div>
+</section>
+
+<!-- ===== INFO CARDS ===== -->
+<section class="info-cards-section">
+  <div class="contact-container">
+    <div class="info-cards-grid">
+      <div class="info-card hover-card" *ngFor="let c of infoCards; let i = index" appScrollReveal [revealDelay]="i * 100">
+        <div class="info-icon-wrap" [style.background]="c.iconBg">
+          <fa-icon [icon]="c.icon" [style.color]="c.iconColor"></fa-icon>
+        </div>
+        <span class="info-label">{{ c.label }}</span>
+        <strong class="info-title">{{ c.title }}</strong>
+        <span class="info-sub">{{ c.sub }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORM + DETAILS ===== -->
+<section class="contact-main-section">
+  <div class="contact-container contact-two-col">
+
+    <!-- Form card -->
+    <div class="form-card" appScrollReveal revealDirection="left">
+      <h2 class="form-title">Send a Message</h2>
+
+      <div *ngIf="submitted" class="form-success">
+        ✅ Thank you! We'll get back to you within 48 hours.
+      </div>
+
+      <form (ngSubmit)="onSubmit()" *ngIf="!submitted">
+        <div class="form-row">
+          <div class="form-group">
+            <input type="text" placeholder="Full Name" [(ngModel)]="form.name" name="name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email Address" [(ngModel)]="form.email" name="email" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="tel" placeholder="Phone Number" [(ngModel)]="form.phone" name="phone" />
+        </div>
+        <div class="form-group">
+          <select [(ngModel)]="form.subject" name="subject" required>
+            <option value="" disabled selected>Select Subject</option>
+            <option value="support">Seeking Support</option>
+            <option value="volunteer">Volunteering</option>
+            <option value="donate">Donation</option>
+            <option value="partner">Corporate Partnership</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Your Message" [(ngModel)]="form.message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          Send Message &rarr;
+        </button>
+      </form>
+    </div>
+
+    <!-- Right column -->
+    <div class="contact-right" appScrollReveal revealDirection="right">
+
+      <!-- Dark reach-us card -->
+      <div class="reach-card">
+        <h2 class="reach-title">Reach Us Directly</h2>
+        <div class="reach-item">
+          <div class="reach-icon-wrap">
+            <fa-icon [icon]="faLocationDot"></fa-icon>
+          </div>
+          <div>
+            <span class="reach-label">AREA OF OPERATION</span>
+            <strong class="reach-value">All Over Maharashtra, India</strong>
+            <span class="reach-sub">Reaching all 36 districts</span>
+          </div>
+        </div>
+        <div class="reach-item">
+          <div class="reach-icon-wrap">
+            <fa-icon [icon]="faPhone"></fa-icon>
+          </div>
+          <div>
+            <span class="reach-label">PHONE</span>
+            <strong class="reach-value">+91 98765 43210</strong>
+            <span class="reach-sub">Mon–Sat, 9am–6pm IST</span>
+          </div>
+        </div>
+        <div class="reach-item">
+          <div class="reach-icon-wrap">
+            <fa-icon [icon]="faEnvelope"></fa-icon>
+          </div>
+          <div>
+            <span class="reach-label">EMAIL</span>
+            <strong class="reach-value">info@reablefoundation.org</strong>
+            <span class="reach-sub">We reply within 48 hours</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orange coverage card -->
+      <div class="coverage-card">
+        <h3 class="coverage-title">Coverage Area</h3>
+        <p class="coverage-text">
+          We operate across all 36 districts of Maharashtra, from Mumbai
+          Metropolitan to rural Vidarbha and Marathwada. No matter where you
+          are — we can reach you.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>

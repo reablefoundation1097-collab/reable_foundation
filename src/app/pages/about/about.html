@@ -1,0 +1,98 @@
+<!-- ===== HERO ===== -->
+<section class="about-hero">
+  <div class="about-hero-bg"></div>
+  <div class="about-hero-overlay"></div>
+
+  <div class="about-hero-content">
+    <div class="hero-badge">
+      <fa-icon [icon]="faHeart"></fa-icon>
+      About Reable Foundation
+    </div>
+
+    <h1 class="about-hero-heading">
+      Building a World<br>
+      Where Every Ability<br>
+      <span class="accent-italic">Has a Place.</span>
+    </h1>
+
+    <p class="about-hero-subtext">
+      Reable Foundation is a registered NGO operating across all of<br>
+      Maharashtra, dedicated to empowering individuals with special abilities<br>
+      through structured rehabilitation, education, and community integration.
+    </p>
+  </div>
+</section>
+
+<!-- ===== STATS BAR ===== -->
+<section class="stats-bar-section">
+  <div class="stats-bar">
+    <div class="stat-item hover-card" *ngFor="let s of stats; let i = index" appScrollReveal [revealDelay]="i * 100">
+      <div class="stat-icon-wrap">
+        <fa-icon [icon]="s.icon"></fa-icon>
+      </div>
+      <div class="stat-text">
+        <span class="stat-val">{{ s.value }}</span>
+        <span class="stat-lbl">{{ s.label }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MISSION & VISION ===== -->
+<section class="mission-section">
+  <div class="mission-container">
+    <span class="section-badge">OUR DIRECTION</span>
+    <h2 class="mission-heading">Mission &amp; Vision</h2>
+
+    <div class="mission-cards">
+      <div class="mission-card hover-card" appScrollReveal>
+        <div class="mission-icon mission-icon-orange">
+          <fa-icon [icon]="faBullseye"></fa-icon>
+        </div>
+        <h3 class="mission-card-title">Our Mission</h3>
+        <p class="mission-card-text">
+          To provide a structured and supportive environment for individuals
+          with special abilities, offering medium- to long-term rehabilitation
+          programs tailored to their unique needs. Through comprehensive
+          therapeutic interventions and continuous support, we seek to enhance
+          their confidence, independence, and overall well-being.
+        </p>
+      </div>
+
+      <div class="mission-card hover-card" appScrollReveal>
+        <div class="mission-icon mission-icon-olive">
+          <fa-icon [icon]="faEye"></fa-icon>
+        </div>
+        <h3 class="mission-card-title">Our Vision</h3>
+        <p class="mission-card-text">
+          To create an inclusive and empowering space that nurtures
+          determination, develops skills, and strengthens the inherent potential,
+          resilience, and capabilities of every individual — enabling them to lead
+          more independent and fulfilling lives.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEET THE TEAM ===== -->
+<section class="team-section">
+  <div class="team-container">
+    <div class="team-header">
+      <span class="section-badge-center team-badge">OUR PEOPLE</span>
+      <h2 class="team-heading">
+        Meet the <span class="accent-italic">Team.</span>
+      </h2>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card" *ngFor="let member of team; let i = index" appScrollReveal [revealDelay]="i * 100">
+        <div class="team-photo-wrap" [style.background-color]="member.bg">
+          <img [src]="member.image" [alt]="member.name" class="team-photo" />
+        </div>
+        <h4 class="team-name">{{ member.name }}</h4>
+        <p class="team-role">{{ member.role }}</p>
+      </div>
+    </div>
+  </div>
+</section>

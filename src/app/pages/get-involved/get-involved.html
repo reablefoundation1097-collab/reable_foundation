@@ -1,0 +1,85 @@
+<!-- ===== HERO ===== -->
+<section class="gi-hero">
+  <div class="gi-hero-bg"></div>
+  <div class="gi-hero-overlay"></div>
+  <div class="gi-hero-content">
+    <span class="hero-badge">GET INVOLVED</span>
+    <h1 class="gi-hero-heading">
+      Your Action.<br>
+      Their <span class="accent-italic">New Beginning.</span>
+    </h1>
+    <p class="gi-hero-subtext">
+      Whether you donate, volunteer, or partner — every contribution ripples<br>
+      outward into lives transformed across Maharashtra.
+    </p>
+  </div>
+</section>
+
+<!-- ===== FOUR WAYS ===== -->
+<section class="ways-section">
+  <div class="ways-container">
+    <h2 class="ways-heading" appScrollReveal>
+      Four Ways to <span class="accent-italic">Create Change.</span>
+    </h2>
+
+    <div class="ways-grid">
+      <div class="way-card hover-card"
+        *ngFor="let w of ways; let i = index"
+        [style.background-color]="w.cardBg"
+        appScrollReveal
+        [revealDelay]="i * 100">
+
+        <div class="way-icon" [style.background-color]="w.iconBg">
+          <fa-icon [icon]="w.icon"></fa-icon>
+        </div>
+
+        <h3 class="way-title">{{ w.title }}</h3>
+        <p class="way-desc">{{ w.desc }}</p>
+
+        <ul class="way-items">
+          <li *ngFor="let item of w.items">
+            <fa-icon [icon]="faCircleCheck" class="check-icon"></fa-icon>
+            {{ item }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT FORM ===== -->
+<section class="contact-section">
+  <div class="contact-container">
+    <div class="contact-header" appScrollReveal>
+      <span class="contact-badge">CONTACT US</span>
+      <h2 class="contact-heading">
+        Start the <span class="accent-italic">Conversation.</span>
+      </h2>
+    </div>
+
+    <div class="contact-form-wrap" appScrollReveal [revealDelay]="150">
+      <div *ngIf="submitted" class="success-msg">
+        ✅ Thanks! We'll get back to you soon.
+      </div>
+
+      <form *ngIf="!submitted" (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="form-row">
+          <input type="text" placeholder="Full Name" [(ngModel)]="form.name" name="name" required class="form-input" />
+          <input type="email" placeholder="Email Address" [(ngModel)]="form.email" name="email" required class="form-input" />
+        </div>
+        <input type="tel" placeholder="Phone Number (optional)" [(ngModel)]="form.phone" name="phone" class="form-input" />
+        <select [(ngModel)]="form.interest" name="interest" class="form-select">
+          <option *ngFor="let opt of interests" [value]="opt">{{ opt }}</option>
+        </select>
+        <textarea
+          placeholder="Tell us more about how you'd like to get involved..."
+          [(ngModel)]="form.message" name="message"
+          class="form-textarea" rows="5">
+        </textarea>
+        <button type="submit" class="submit-btn">
+          Send My Message <fa-icon [icon]="faArrowRight"></fa-icon>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

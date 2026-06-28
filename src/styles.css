@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { margin: 0; padding: 0; }
+body { min-height: 100vh; }
+
+/* Global hover card effect */
+.hover-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12) !important;
+}

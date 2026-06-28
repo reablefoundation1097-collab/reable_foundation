@@ -1,0 +1,164 @@
+<!-- ===== HERO ===== -->
+<section class="impact-hero">
+  <div class="impact-hero-bg"></div>
+  <div class="impact-hero-overlay"></div>
+  <div class="impact-hero-content">
+    <span class="hero-badge">OUR IMPACT</span>
+    <h1 class="impact-hero-heading">
+      Every Number<br>
+      is a Human Story.<br>
+      <span class="accent-italic">Dignity in Data.</span>
+    </h1>
+    <p class="impact-hero-subtext">
+      A transparent look at the real impact Reable Foundation has made across<br>
+      Maharashtra since inception.
+    </p>
+  </div>
+</section>
+
+<!-- ===== STATS — counting animation ===== -->
+<section class="stats-section stats-trigger">
+  <div class="stats-watermark">IMPACT</div>
+  <div class="stats-inner">
+    <span class="section-badge-white">OUR IMPACT</span>
+    <h2 class="stats-heading">Dignity in Numbers.</h2>
+    <div class="stats-grid">
+      <div class="stat-card hover-card" *ngFor="let s of stats; let i = index" appScrollReveal [revealDelay]="i * 100">
+        <span class="stat-num">{{ s.current }}{{ s.suffix }}</span>
+        <span class="stat-title">{{ s.title }}</span>
+        <span class="stat-desc">{{ s.desc }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHARTS — slide in from sides ===== -->
+<section class="charts-section charts-trigger">
+  <div class="charts-container">
+    <div class="charts-header">
+      <h2 class="charts-heading">
+        Five Years of <span class="accent-italic">Expanding Impact.</span>
+      </h2>
+    </div>
+
+    <div class="charts-grid">
+
+      <!-- Bar Chart: Year-over-Year -->
+      <div class="chart-card slide-left" [class.visible]="chartsVisible">
+        <h3 class="chart-title">Beneficiaries Reached (Year-over-Year)</h3>
+        <div class="bar-chart">
+          <div class="bar-y-axis">
+            <span>600</span>
+            <span>450</span>
+            <span>300</span>
+            <span>150</span>
+            <span>0</span>
+          </div>
+          <div class="bar-chart-inner">
+            <div class="bar-grid-lines">
+              <div class="grid-line" *ngFor="let _ of [0,1,2,3,4]"></div>
+            </div>
+            <div class="bars">
+              <div class="bar-col" *ngFor="let d of yearData">
+                <div class="bar-fill"
+                  [style.height.%]="chartsVisible ? getBarHeight(d.value, d.max) : 0"
+                  [style.transition-delay]="chartsVisible ? '0.1s' : '0s'">
+                </div>
+                <span class="bar-label">{{ d.year }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Horizontal Bar Chart: By Program -->
+      <div class="chart-card slide-right" [class.visible]="chartsVisible">
+        <h3 class="chart-title">Reach by Program Area</h3>
+        <div class="hbar-chart">
+          <div class="hbar-row" *ngFor="let d of programData; let i = index">
+            <span class="hbar-label">{{ d.label }}</span>
+            <div class="hbar-track">
+              <div class="hbar-fill"
+                [style.width.%]="chartsVisible ? getBarWidth(d.value, d.max) : 0"
+                [style.transition-delay]="chartsVisible ? (i * 0.1) + 's' : '0s'">
+              </div>
+            </div>
+            <span class="hbar-val">{{ d.value }}</span>
+          </div>
+          <div class="hbar-x-axis">
+            <span>0</span><span>150</span><span>300</span><span>450</span><span>600</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== INFINITE SCROLL TESTIMONIALS ===== -->
+<section class="testimonials-section">
+  <div class="testimonials-header">
+    <span class="section-badge-cream">VOICES OF CHANGE</span>
+    <h2 class="testimonials-heading">
+      Stories That<br>
+      <span class="accent-italic">Inspire Us All.</span>
+    </h2>
+  </div>
+
+  <!-- Infinite marquee row -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track">
+      <div class="testimonial-card" *ngFor="let t of scrollTestimonials">
+        <div class="t-card-image" [style.background-color]="t.bg">
+          <img [src]="t.image" [alt]="t.name" />
+          <span class="t-cat-badge">{{ t.category }}</span>
+        </div>
+        <div class="t-card-body">
+          <div class="t-quote-mark">"</div>
+          <p class="t-quote">{{ t.quote }}</p>
+          <div class="t-author">
+            <img [src]="t.image" [alt]="t.name" class="t-avatar" />
+            <div>
+              <span class="t-name">{{ t.name }}</span>
+              <span class="t-loc">{{ t.location }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Single testimonial slider (detailed) -->
+  <div class="testimonial-slider-wrap">
+    <div class="testimonial-slide" *ngFor="let t of testimonials; let i = index" [class.active]="i === currentSlide">
+      <div class="t-slide-image" [style.background-color]="t.bg">
+        <img [src]="t.image" [alt]="t.name" />
+        <span class="t-cat-badge">{{ t.category }}</span>
+      </div>
+      <div class="t-slide-content">
+        <div class="t-big-quote">"</div>
+        <p class="t-big-text">{{ t.quote }}</p>
+        <div class="t-author">
+          <img [src]="t.image" [alt]="t.name" class="t-avatar" />
+          <div>
+            <span class="t-name">{{ t.name }}</span>
+            <span class="t-loc">{{ t.location }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-controls">
+      <button class="slider-btn" (click)="prevSlide()">
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+      </button>
+      <div class="slider-dots">
+        <span class="dot" *ngFor="let t of testimonials; let i = index"
+          [class.active]="i === currentSlide" (click)="goToSlide(i)"></span>
+      </div>
+      <button class="slider-btn" (click)="nextSlide()">
+        <fa-icon [icon]="faChevronRight"></fa-icon>
+      </button>
+    </div>
+  </div>
+</section>

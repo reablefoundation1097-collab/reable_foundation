@@ -1,0 +1,64 @@
+<!-- ===== HERO ===== -->
+<section class="programs-hero">
+  <div class="programs-hero-bg"></div>
+  <div class="programs-hero-overlay"></div>
+  <div class="programs-hero-content">
+    <span class="hero-badge">OUR PROGRAMS</span>
+    <h1 class="programs-hero-heading">
+      Comprehensive Care<br>
+      for Every<br>
+      <span class="accent-italic">Unique Journey.</span>
+    </h1>
+    <p class="programs-hero-subtext">
+      Six carefully designed program streams, each addressing a different<br>
+      dimension of empowerment for individuals with special abilities across<br>
+      Maharashtra.
+    </p>
+  </div>
+</section>
+
+<!-- ===== PROGRAM ROWS ===== -->
+<section class="programs-list">
+  <div class="programs-container">
+
+    <div
+      *ngFor="let p of programs"
+      class="program-row"
+      [class.image-left]="p.imageLeft"
+      [class.image-right]="!p.imageLeft"
+      [class.visible]="p.visible"
+      [attr.data-id]="p.id">
+
+      <!-- Image side -->
+      <div class="program-image-wrap">
+        <img [src]="p.image" [alt]="p.title" class="program-image" />
+      </div>
+
+      <!-- Content card -->
+      <div class="program-card">
+        <div class="program-card-top">
+          <div class="program-icon-wrap">
+            <fa-icon [icon]="p.icon"></fa-icon>
+          </div>
+          <span class="program-category" [ngClass]="'cat-' + p.categoryColor">{{ p.category }}</span>
+        </div>
+
+        <h2 class="program-card-title">{{ p.title }}</h2>
+        <p class="program-card-desc">{{ p.desc }}</p>
+
+        <ul class="program-items">
+          <li *ngFor="let item of p.items">
+            <fa-icon [icon]="faCircleCheck" class="check-icon"></fa-icon>
+            {{ item }}
+          </li>
+        </ul>
+
+        <a routerLink="/contact" class="program-enquire-link">
+          Apply / Enquire <fa-icon [icon]="faArrowRight"></fa-icon>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
