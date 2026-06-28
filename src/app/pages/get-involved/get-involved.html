@@ -87,6 +87,7 @@
           class="form-textarea" rows="5">
         </textarea>
         <button type="submit" class="submit-btn" [disabled]="sending">
+          <span *ngIf="sending" class="btn-spinner"></span>
           {{ sending ? 'Sending...' : 'Send My Message' }}
           <fa-icon [icon]="faArrowRight" *ngIf="!sending"></fa-icon>
         </button>

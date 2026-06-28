@@ -78,6 +78,7 @@
           <textarea placeholder="Your Message" [(ngModel)]="form.message" name="message" rows="5" required></textarea>
         </div>
         <button type="submit" class="form-submit" [disabled]="sending">
+          <span *ngIf="sending" class="btn-spinner"></span>
           {{ sending ? 'Sending...' : 'Send Message →' }}
         </button>
       </form>
