@@ -149,7 +149,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
+  overflow-x: clip; /* clip hero bg/overlay, don't affect child scroll */
 }
 
 .hero-bg-image {
@@ -530,6 +530,7 @@
 =========================== */
 .programs-section {
   background: #FDF6EC;
+  overflow: visible;
 }
 
 .programs-header {
@@ -545,8 +546,13 @@
   overflow-x: auto;
   padding-bottom: 16px;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  cursor: grab;
 }
+.programs-scroll:active { cursor: grabbing; }
 .programs-scroll::-webkit-scrollbar { display: none; }
+.program-card { scroll-snap-align: start; }
 
 .program-card {
   flex: 0 0 320px;
@@ -910,4 +916,84 @@
 
 .get-started-link.highlight {
   color: #C1440E;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+/* Tablet */
+@media (max-width: 960px) {
+  .section-container.two-col {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .direction-cards { grid-template-columns: 1fr 1fr; }
+  .pillars-grid    { grid-template-columns: 1fr 1fr; }
+  .impact-stats    { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .get-involved-cards { grid-template-columns: 1fr 1fr; }
+  .testimonial-slide  { grid-template-columns: 1fr; gap: 32px; }
+  .testimonial-image-wrap { height: 260px; }
+  .hero-stats { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  /* Container */
+  .section-container { padding: 56px 0; width: min(100% - 32px, 1280px); }
+
+  /* Hero */
+  .hero-content { padding: 108px 20px 0; }
+  .hero-heading { font-size: clamp(34px, 9.5vw, 42px); line-height: 1.1; }
+  .hero-subtext { font-size: 15px; }
+  .hero-subtext br { display: none; }
+  .hero-actions { flex-direction: column; gap: 12px; }
+  .hero-actions a { width: 100%; justify-content: center; box-sizing: border-box; }
+
+  /* Hero stats */
+  .hero-stats { padding: 0 20px; flex-direction: column; gap: 14px; margin: 24px auto 32px; }
+  .hero-stats-left { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .stat-pill { min-width: 0; padding: 12px 16px; }
+  .stat-number { font-size: 22px; }
+  .hero-stats-right { width: 100%; }
+  .coverage-pill { width: 100%; box-sizing: border-box; }
+
+  /* Who We Are */
+  .who-card { padding: 16px 18px; }
+
+  /* Direction */
+  .direction-cards { grid-template-columns: 1fr; gap: 16px; }
+
+  /* Pillars */
+  .pillars-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  /* Programs — switch to vertical stack on mobile */
+  .programs-header { flex-direction: column; gap: 12px; align-items: flex-start; }
+  .programs-scroll {
+    flex-direction: column;
+    overflow-x: visible;
+    gap: 16px;
+    scroll-snap-type: none;
+  }
+  .program-card {
+    flex: none;
+    width: 100%;
+    height: 300px;
+  }
+
+  /* Impact stats */
+  .impact-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .impact-num { font-size: 36px; }
+  .impact-stat { padding: 20px 14px; }
+
+  /* Testimonial */
+  .testimonial-slider { width: min(100% - 32px, 1100px); }
+  .testimonial-slide.active { display: flex; flex-direction: column; }
+  .testimonial-image-wrap { height: 220px; }
+  .testimonial-quote { font-size: 16px; }
+  .slider-controls { width: min(100% - 32px, 1100px); }
+
+  /* Get Involved */
+  .get-involved-cards { grid-template-columns: 1fr; gap: 16px; }
+  .get-involved-card { padding: 28px 24px; }
 }

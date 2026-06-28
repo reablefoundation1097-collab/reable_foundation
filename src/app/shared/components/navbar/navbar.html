@@ -2,58 +2,54 @@
   <div class="navbar-container">
 
     <!-- Logo -->
-    <!-- <div class="navbar-logo">
-      <a class="logo-circle" routerLink="/" aria-label="Reable Foundation Home">
-        <img src="/assets/logo_image.jpeg" alt="Reable Foundation Logo" class="logo-img" />
-      </a>
-      <span>Reable</span>
-      <span>Foundation</span>
-    </div> -->
     <div class="navbar-logo">
       <a class="logo-circle" routerLink="/" aria-label="Reable Foundation Home">
         <fa-icon [icon]="faHeart" class="fa-heart fa-float heart-icon"></fa-icon>
       </a>
-
       <div class="logo-text">
         <span class="logo-title">Reable</span>
         <span class="logo-subtitle">Foundation</span>
       </div>
     </div>
 
-    <!-- Menu -->
+    <!-- Desktop Menu -->
     <div class="navbar-menu">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-        Home
-      </a>
-
-      <a routerLink="/about" routerLinkActive="active">
-        About
-      </a>
-
-      <a routerLink="/programs" routerLinkActive="active">
-        Programs
-      </a>
-
-      <a routerLink="/impact" routerLinkActive="active">
-        Impact
-      </a>
-
-      <a routerLink="/get-involved" routerLinkActive="active">
-        Get Involved
-      </a>
-
-      <a routerLink="/contact" routerLinkActive="active">
-        Contact
-      </a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/about" routerLinkActive="active">About</a>
+      <a routerLink="/programs" routerLinkActive="active">Programs</a>
+      <a routerLink="/impact" routerLinkActive="active">Impact</a>
+      <a routerLink="/get-involved" routerLinkActive="active">Get Involved</a>
+      <a routerLink="/contact" routerLinkActive="active">Contact</a>
     </div>
 
-
-    <!-- Button -->
+    <!-- Desktop Donate -->
     <div class="navbar-action">
-      <a routerLink="/get-involved" class="donate-btn">
-        Donate Now
-      </a>
+      <a routerLink="/get-involved" class="donate-btn">Donate Now</a>
     </div>
+
+    <!-- Hamburger -->
+    <button class="hamburger" (click)="toggleMenu()" [class.open]="isMenuOpen" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
   </div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" [class.open]="isMenuOpen">
+    <nav class="mobile-nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+      <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+      <a routerLink="/programs" routerLinkActive="active" (click)="closeMenu()">Programs</a>
+      <a routerLink="/impact" routerLinkActive="active" (click)="closeMenu()">Impact</a>
+      <a routerLink="/get-involved" routerLinkActive="active" (click)="closeMenu()">Get Involved</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+      <a routerLink="/get-involved" class="mobile-donate" (click)="closeMenu()">Donate Now</a>
+    </nav>
+  </div>
+
 </header>
+
+<!-- Overlay -->
+<div class="mobile-overlay" [class.open]="isMenuOpen" (click)="closeMenu()"></div>

@@ -26,6 +26,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -34,6 +35,7 @@ body {
   font-family: var(--font-body);
   background: var(--color-cream-soft);
   color: var(--color-text);
+  overflow-x: hidden;
 }
 
 img {

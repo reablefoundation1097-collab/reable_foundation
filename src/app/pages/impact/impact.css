@@ -248,3 +248,57 @@
   background: #D5C9B8; cursor: pointer; transition: 0.2s ease;
 }
 .dot.active { background: #C1440E; }
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .charts-grid { grid-template-columns: 1fr; }
+  /* No slide-in on mobile — looks broken on stacked layout */
+  .chart-card.slide-left,
+  .chart-card.slide-right { transform: none; opacity: 1; }
+  .testimonial-slide { grid-template-columns: 1fr; gap: 32px; }
+  .t-slide-image { height: 260px; }
+  .impact-hero-heading br { display: none; }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  /* Hero */
+  .impact-hero-content { width: min(100% - 32px, 900px); padding-top: 108px; }
+  .impact-hero-heading { font-size: 36px; }
+  .impact-hero-subtext { font-size: 14px; }
+  .impact-hero-subtext br { display: none; }
+
+  /* Stats */
+  .stats-section { padding: 56px 0; }
+  .stats-inner { width: min(100% - 32px, 1280px); }
+  .stats-heading { font-size: 32px; margin-bottom: 32px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-card { padding: 20px 14px; border-radius: 18px; }
+  .stat-num { font-size: 36px; }
+  .stat-title { font-size: 13px; }
+  .stat-desc { font-size: 11px; }
+
+  /* Charts */
+  .charts-section { padding: 56px 0; }
+  .charts-container { width: min(100% - 32px, 1280px); }
+  .charts-heading { font-size: 28px; }
+  .chart-card { padding: 24px 20px; }
+  .bar-chart { height: 200px; }
+
+  /* Testimonials */
+  .testimonials-section { padding: 56px 0; }
+  .testimonials-heading { font-size: 32px; }
+  .testimonials-heading br { display: none; }
+  .testimonial-card { width: 280px; }
+  .testimonial-slider-wrap { width: min(100% - 32px, 1100px); }
+  .testimonial-slide.active { display: flex; flex-direction: column; }
+  .t-slide-image { height: 220px; }
+  .t-big-text { font-size: 16px; }
+
+  /* Horizontal bar chart label */
+  .hbar-row { grid-template-columns: 80px 1fr 30px; gap: 6px; }
+  .hbar-label { font-size: 11px; }
+}

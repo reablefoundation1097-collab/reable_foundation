@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-html, body { margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; overflow-x: hidden; width: 100%; }
 body { min-height: 100vh; }
+img { max-width: 100%; height: auto; }
 
 /* Global hover card effect */
 .hover-card {
@@ -10,4 +11,12 @@ body { min-height: 100vh; }
 .hover-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 16px 40px rgba(0,0,0,0.12) !important;
+}
+
+/* Disable hover lift on touch devices */
+@media (hover: none) {
+  .hover-card:hover {
+    transform: none;
+    box-shadow: none !important;
+  }
 }

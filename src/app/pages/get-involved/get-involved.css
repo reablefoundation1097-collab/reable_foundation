@@ -123,3 +123,36 @@ form { display: flex; flex-direction: column; gap: 16px; }
   text-align: center; padding: 48px 24px;
   font-size: 18px; font-weight: 700; color: #4A7A4A;
 }
+
+/* ===== RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 860px) {
+  .ways-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  /* Hero */
+  .gi-hero-content { width: min(100% - 32px, 900px); padding-top: 108px; }
+  .gi-hero-heading { font-size: 40px; }
+  .gi-hero-heading br { display: none; }
+  .gi-hero-subtext { font-size: 14px; }
+  .gi-hero-subtext br { display: none; }
+
+  /* Ways */
+  .ways-section { padding: 64px 0; }
+  .ways-container { width: min(100% - 32px, 1280px); }
+  .ways-heading { font-size: 28px; margin-bottom: 36px; }
+  .ways-grid { grid-template-columns: 1fr; gap: 16px; }
+  .way-card { padding: 28px 22px; border-radius: 22px; }
+  .way-title { font-size: 20px; }
+
+  /* Contact form */
+  .contact-section { padding: 0 0 64px; }
+  .contact-container { width: min(100% - 32px, 800px); }
+  .contact-heading { font-size: 28px; }
+  .contact-form-wrap { padding: 28px 20px; border-radius: 20px; }
+  .form-row { grid-template-columns: 1fr; }
+  .form-input, .form-select, .form-textarea { padding: 14px 16px; font-size: 14px; }
+}
