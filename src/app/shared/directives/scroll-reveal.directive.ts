@@ -17,6 +17,7 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
 
     // Initial hidden state
     el.style.opacity = '0';
+    el.style.pointerEvents = 'none';
     el.style.transition = `opacity 0.6s ease ${this.revealDelay}ms, transform 0.6s ease ${this.revealDelay}ms`;
     if (this.revealDirection === 'up')    el.style.transform = 'translateY(40px)';
     if (this.revealDirection === 'left')  el.style.transform = 'translateX(-60px)';
@@ -27,12 +28,22 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
         if (entry.isIntersecting) {
           el.style.opacity = '1';
           el.style.transform = 'translate(0)';
+          el.style.pointerEvents = '';
           this.observer.unobserve(el);
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0 });
 
     this.observer.observe(el);
+
+    // Fallback: ensure element is always revealed after 1.5s (mobile keyboard/viewport edge cases)
+    setTimeout(() => {
+      if (el.style.opacity === '0') {
+        el.style.opacity = '1';
+        el.style.transform = 'translate(0)';
+        el.style.pointerEvents = '';
+      }
+    }, 1500);
   }
 
   ngOnDestroy(): void {
