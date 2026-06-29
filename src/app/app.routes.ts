@@ -5,6 +5,7 @@ import { Programs} from './pages/programs/programs';
 import { Impact } from './pages/impact/impact';
 import { GetInvolved} from './pages/get-involved/get-involved';
 import { Contact } from './pages/contact/contact';
+import { VariCampaign } from './pages/vari-campaign/vari-campaign';
 
 export const routes: Routes = [
   {
@@ -36,6 +37,11 @@ export const routes: Routes = [
     path: 'contact',
     component: Contact,
     title: 'Contact | Reable Foundation'
+  },
+  {
+    path: 'vari-campaign',
+    component: VariCampaign,
+    title: 'Vari Campaign | Reable Foundation'
   },
   {
     path: '**',

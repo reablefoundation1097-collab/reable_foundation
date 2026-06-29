@@ -85,19 +85,30 @@
 
 .navbar-menu a {
   font-family: 'Nunito', system-ui, sans-serif;
-  padding: 13px 14px;
+  padding: 10px 11px;
   border-radius: 999px;
   color: #1f1f1f;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   text-decoration: none;
   transition: 0.2s ease;
+  white-space: nowrap;
 }
 
 .navbar-menu a:hover,
 .navbar-menu a.active {
   background: #efe6d5;
   color: #c83a0a;
+}
+
+.navbar-menu a.campaign-link {
+  color: #C1440E;
+  font-weight: 700;
+}
+.navbar-menu a.campaign-link:hover,
+.navbar-menu a.campaign-link.active {
+  background: #FDE8DC;
+  color: #A33A0C;
 }
 
 /* ===== DONATE BUTTON ===== */
@@ -259,8 +270,9 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 860px) {
   .navbar-container {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto auto;
     width: min(100% - 32px, 1280px);
+    justify-content: space-between;
   }
 
   .navbar-menu,

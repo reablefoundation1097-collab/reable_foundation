@@ -32,7 +32,7 @@ export class ScrollRevealDirective implements OnInit, OnDestroy {
           this.observer.unobserve(el);
         }
       });
-    }, { threshold: 0 });
+    }, { threshold: 0.1 });
 
     this.observer.observe(el);
 

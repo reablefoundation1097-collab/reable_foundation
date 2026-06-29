@@ -1,0 +1,245 @@
+<!-- ===== HERO — Split Layout ===== -->
+<section class="vari-hero">
+  <!-- Left panel: solid dark with content -->
+  <div class="hero-left">
+    <div class="hero-left-inner">
+      <span class="hero-badge">🪔 ONGOING CAMPAIGN · 2025</span>
+      <h1 class="hero-heading">
+        Vari Campaign —<br>
+        <span class="accent-italic">Every Soul<br>Walks.</span>
+      </h1>
+      <p class="hero-subtext">
+        Helping specially-abled devotees participate in Maharashtra's most sacred
+        pilgrimage — with wheelchairs, medical support, and compassion.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/get-involved" class="btn-primary">
+          Join the Mission <fa-icon [icon]="faArrowRight"></fa-icon>
+        </a>
+        <a routerLink="/contact" class="btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-meta">
+        <span><fa-icon [icon]="faLocationDot"></fa-icon> Alandi → Pandharpur</span>
+        <span><fa-icon [icon]="faCalendarDays"></fa-icon> Ashadhi Ekadashi · Annual</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right panel: video frame -->
+  <div class="hero-right">
+    <div class="hero-video-frame">
+      <iframe
+        class="hero-iframe"
+        src="https://www.youtube.com/embed/iyn7_8cH6t0?autoplay=1&mute=1&loop=1&controls=0&playlist=iyn7_8cH6t0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen>
+      </iframe>
+      <!-- floating stat badges -->
+      <div class="hero-float hero-float--tl">
+        <span class="float-num">200+</span>
+        <span class="float-label">Pilgrims Supported</span>
+      </div>
+      <div class="hero-float hero-float--br">
+        <span class="float-num">20+</span>
+        <span class="float-label">Wheelchairs Deployed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT THE CAMPAIGN ===== -->
+<section class="about-section">
+  <div class="about-container">
+
+    <div class="about-left" appScrollReveal revealDirection="left">
+      <span class="section-badge">THE CAMPAIGN</span>
+      <h2 class="section-heading">
+        What is <span class="accent-italic">Vari?</span>
+      </h2>
+      <p class="about-para">
+        Vari — the sacred Warkari pilgrimage — draws millions of devotees from across Maharashtra
+        every year to walk hundreds of kilometres to Pandharpur in devotion to Lord Vitthal.
+        It is one of the world's largest religious gatherings and a profound expression of unity,
+        faith, and belonging.
+      </p>
+      <p class="about-para">
+        Yet for individuals with physical disabilities, this journey has long been out of reach.
+        Reable Foundation's <strong>Vari Campaign</strong> exists to change that — arranging
+        wheelchairs, deploying medical teams, and pairing trained volunteers so that
+        <em>no one is left behind</em>.
+      </p>
+      <div class="about-quote">
+        <fa-icon [icon]="faQuoteLeft" class="quote-icon"></fa-icon>
+        <p>"Faith knows no disability. Every devotee deserves to walk the path of Vitthal."</p>
+      </div>
+    </div>
+
+    <div class="about-right" appScrollReveal revealDirection="right">
+      <div class="stats-card">
+        <div class="stats-card-header">
+          <span class="stats-badge">Campaign Impact</span>
+          <h3 class="stats-card-title">2025 Edition</h3>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item" *ngFor="let s of stats">
+            <span class="stat-num">{{ s.num }}</span>
+            <span class="stat-label">{{ s.label }}</span>
+            <span class="stat-desc">{{ s.desc }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== HOW WE HELP — Alternating Feature Rows ===== -->
+<section class="help-section">
+  <div class="help-header" appScrollReveal>
+    <span class="section-badge">HOW WE HELP</span>
+    <h2 class="section-heading">
+      What We <span class="accent-italic">Provide.</span>
+    </h2>
+  </div>
+
+  <div class="help-row help-row--orange" appScrollReveal revealDirection="left">
+    <div class="help-row-inner">
+      <div class="help-num">01</div>
+      <div class="help-body">
+        <div class="help-icon-wrap help-icon--orange"><fa-icon [icon]="faWheelchair"></fa-icon></div>
+        <h3 class="help-title">Wheelchair Provision</h3>
+        <p class="help-desc">We arrange and deploy wheelchairs along the entire Vari route, ensuring every specially-abled devotee can complete their sacred journey with dignity and independence.</p>
+        <div class="help-tags">
+          <span>Wheelchairs at key stops</span><span>Trained attendants</span><span>Route-mapped deployment</span>
+        </div>
+      </div>
+      <div class="help-visual">
+        <img src="/assets/wheelchair.png" alt="Wheelchair support" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <div class="help-row help-row--green help-row--reverse" appScrollReveal revealDirection="right">
+    <div class="help-row-inner">
+      <div class="help-num">02</div>
+      <div class="help-body">
+        <div class="help-icon-wrap help-icon--green"><fa-icon [icon]="faHeartPulse"></fa-icon></div>
+        <h3 class="help-title">Medical Support</h3>
+        <p class="help-desc">Dedicated medical teams stationed throughout the pilgrimage route provide first aid, medicines, and emergency response — so pilgrims with special needs are never alone.</p>
+        <div class="help-tags">
+          <span>On-site first aid posts</span><span>Emergency response</span><span>Health monitoring</span>
+        </div>
+      </div>
+      <div class="help-visual">
+        <img src="https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=600&q=85" alt="Medical support" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <div class="help-row help-row--blue" appScrollReveal revealDirection="left">
+    <div class="help-row-inner">
+      <div class="help-num">03</div>
+      <div class="help-body">
+        <div class="help-icon-wrap help-icon--blue"><fa-icon [icon]="faUsers"></fa-icon></div>
+        <h3 class="help-title">Volunteer Escort</h3>
+        <p class="help-desc">Compassionate volunteers walk side by side with specially-abled pilgrims — providing physical assistance, emotional support, and companionship through every kilometre.</p>
+        <div class="help-tags">
+          <span>1-on-1 pairing</span><span>Disability-trained</span><span>Overnight assistance</span>
+        </div>
+      </div>
+      <div class="help-visual">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=85" alt="Volunteer escort" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JOURNEY TIMELINE ===== -->
+<section class="journey-section">
+  <div class="journey-container">
+    <div class="journey-header" appScrollReveal>
+      <span class="section-badge-white">THE JOURNEY</span>
+      <h2 class="section-heading-white">
+        How We Make It <span class="accent-italic-light">Happen.</span>
+      </h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item"
+        *ngFor="let j of journey; let i = index"
+        [class.timeline-item--right]="i % 2 !== 0">
+        <div class="timeline-step">{{ j.step }}</div>
+        <div class="timeline-body">
+          <h3 class="timeline-title">{{ j.title }}</h3>
+          <p class="timeline-desc">{{ j.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GLIMPSES — 6 Photo Bento ===== -->
+<section class="glimpses-section">
+  <div class="glimpses-inner">
+    <div class="glimpses-header" appScrollReveal>
+      <span class="section-badge">GLIMPSES FROM THE FIELD</span>
+      <h2 class="section-heading">Moments of <span class="accent-italic">Dignity.</span></h2>
+    </div>
+
+    <div class="bento-grid">
+      <!-- Row 1: wide + portrait + square -->
+      <!-- <div class="bento-item bento-wide" appScrollReveal revealDirection="left" [revealDelay]="0">
+        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=900&q=85" alt="Community walk" loading="lazy" />
+        <div class="bento-label">The Sacred Walk</div>
+      </div> -->
+      <div class="bento-item bento-portrait" appScrollReveal revealDirection="up" [revealDelay]="80">
+        <img src="/assets/grid_images/temp1.png" alt="Medical care" loading="lazy" />
+        <div class="bento-label">Medical Care</div>
+      </div>
+
+      <!-- Row 2: square + square + wide -->
+      <div class="bento-item bento-square-1" appScrollReveal revealDirection="up" [revealDelay]="100">
+        <img src="/assets/grid_images/03_small_left.png" alt="Helping Hands" loading="lazy" />
+        <div class="bento-label">Helping Hands</div>
+      </div>
+      <div class="bento-item bento-square-2" appScrollReveal revealDirection="up" [revealDelay]="160">
+        <img src="/assets/grid_images/04_small_right.png" alt="Volunteers" loading="lazy" />
+        <div class="bento-label">Our Volunteers</div>
+      </div>
+      <div class="bento-item bento-wide" appScrollReveal revealDirection="right" [revealDelay]="200">
+        <img src="/assets/grid_images/01_top_wide.png" alt="Together" loading="lazy" />
+        <div class="bento-label">Together We Walk</div>
+      </div>
+
+      <!-- Row 3: full-width banner -->
+      <div class="bento-item bento-full" appScrollReveal revealDirection="up" [revealDelay]="120">
+        <img src="/assets/grid_images/05_bottom_banner.png" alt="Campaign impact" loading="lazy" />
+        <div class="bento-banner-text">
+          <span class="bento-banner-num">200+</span>
+          <span class="bento-banner-label">Lives touched through the Vari Campaign</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="cta-container" appScrollReveal>
+    <span class="cta-badge">BE PART OF THIS</span>
+    <h2 class="cta-heading">
+      Help Someone Walk the <span class="accent-italic">Sacred Path.</span>
+    </h2>
+    <p class="cta-text">
+      Volunteer your time, donate a wheelchair, or sponsor a pilgrim's journey.
+      Every contribution makes an unimaginable difference.
+    </p>
+    <div class="cta-actions">
+      <a routerLink="/get-involved" class="btn-primary">
+        Get Involved <fa-icon [icon]="faArrowRight"></fa-icon>
+      </a>
+      <a routerLink="/contact" class="btn-outline-dark">Contact Us</a>
+    </div>
+  </div>
+</section>

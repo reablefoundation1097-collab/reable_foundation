@@ -49,7 +49,7 @@ export class About {
     },
     {
       name: 'Shailesh Desai',
-      role: 'Trustee',
+      role: 'Trustee & Activity Manager',
       image: '/assets/dr_shailesh_desai.jpeg',
       bg: '#6B6B7A'
     },
